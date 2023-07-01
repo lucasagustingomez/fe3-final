@@ -3,8 +3,8 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer>
-        <p>Powered by</p>
-        <img src="./img/DH.png" alt='DH-logo' />
+        <p>este es el footer</p>
+        <img src="" alt='' />
     </footer>
   )
 }
