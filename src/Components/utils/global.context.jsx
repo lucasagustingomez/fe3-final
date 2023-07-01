@@ -5,15 +5,12 @@ export const ContextGlobal = createContext();
 
 
 const themes = {
-
   dark: {
-
       theme: true,
       bgColor: 'black',
       color: 'white'
   },
   light: {
-
       theme: false,
       bgColor: 'white',
       color: 'black'
@@ -26,7 +23,6 @@ const intialThemeState = themes.light
 
 // export const initialState = 
 // {
-
 //   theme: "",
 //   data: []
 //   }
@@ -34,9 +30,7 @@ const intialThemeState = themes.light
 
 
 const themeReducer = (state,action) => {
-
     switch (action.type){
-
       case 'DARK': 
         return themes.dark
       case 'LIGHT':
@@ -51,9 +45,7 @@ const url = 'https://jsonplaceholder.typicode.com/users/'
 
 const initialApiState = []
 const apiReducer = (state, action) => {
-
   switch (action.type) {
-
     case 'GET_DENT':
       return action.payload
     default:
@@ -65,13 +57,11 @@ const apiReducer = (state, action) => {
 
 export const ContextProvider = ({ children }) => {
 
-
   const [dentists, dentistsDispatch] = useReducer(apiReducer, initialApiState)
 
   // const { id } = useParams ()
 
 useEffect(()=>{
-
   fetch(url)
   .then((response) => response.json())
   .then((data) => dentistsDispatch({type: 'GET_DENT', payload: data }));
@@ -86,7 +76,6 @@ useEffect(()=>{
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
 
   return (
-
     <ContextGlobal.Provider value={{themeState, themeDispatch, themeReducer, dentists}}>
       {children}
     </ContextGlobal.Provider>
